@@ -1,0 +1,14 @@
+<odoo>
+    <data noupdate="False">
+        <record id="network_monitor_cron" model="ir.cron">
+            <field name="name">Actualizar estadisticas</field>
+            <field name="model_id" ref="model_network_monitor"/>
+            <field name="numbercall">3</field>
+            <field name="state">code</field>
+            <field name="code">model.update_router_stats()</field>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="active">True</field>
+        </record>
+    </data>
+</odoo>

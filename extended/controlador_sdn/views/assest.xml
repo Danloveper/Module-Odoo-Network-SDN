@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend_network_graph" inherit_id="web.assets_backend">
+        <!-- Insertamos la hoja de estilos de Vis.js -->
+        <xpath expr="//link[@rel='stylesheet']" position="inside">
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css"/>
+        </xpath>
+        <!-- Insertamos los scripts necesarios -->
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+            <script type="text/javascript" src="/controlador_sdn/static/src/js/network_topology.js"></script>
+        </xpath>
+    </template>
+
+    <template id="assets_backend_lightweight_charts" inherit_id="web.assets_backend">
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+            <script type="text/javascript" src="https://unpkg.com/lightweight-charts@3.7.0/dist/lightweight-charts.standalone.production.js"></script>
+            <script type="text/javascript" src="/controlador_sdn/static/src/js/lightweight_chart_widget.js"></script>
+        </xpath>
+    </template>
+</odoo>

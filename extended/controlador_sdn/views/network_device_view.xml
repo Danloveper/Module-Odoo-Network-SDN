@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="network_device_interfaces_view_tree" model="ir.ui.view">
+        <field name="name">network.device.interfaces.view.tree</field>
+        <field name="model">network.device.interfaces</field>
+        <field name="arch" type="xml">
+            <tree string="Interfaces">
+                <field name="device_id" />
+                <field name="name" />
+                <field name="ip" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="network_device_view_form" model="ir.ui.view">
+        <field name="name">network.device.view.form</field>
+        <field name="model">network.device</field>
+        <field name="arch" type="xml">
+            <form string="Dispositivos">
+                <sheet>
+                    <h1 class="mt0">
+                        <field name="name" class="mb16" />
+                    </h1>
+                    <group>
+                        <group attrs="{'invisible': [('type_device', '!=', 'router')]}">
+                            <field name="host" />
+                            <field name="username" />
+                            <field name="password" password="True"/>
+                        </group>
+                        <group>
+                            <field name="type_device" />
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="topology" widget="NetworkTopology" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="interfaces" string="Interfaces">
+                            <field name="interfaces_ids">
+                                <tree editable="bottom">
+                                    <field name="name" />      
+                                    <field name="ip" />      
+                                    <field name="connect_to" string="Conectado a" widget="many2one">
+                                    </field>       
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="network_device_view_tree" model="ir.ui.view">
+        <field name="name">network.device.view.tree</field>
+        <field name="model">network.device</field>
+        <field name="arch" type="xml">
+            <tree string="Dispositivos">
+                <field name="name" />
+                <field name="host" />
+                <field name="username" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="network_device_action" model="ir.actions.act_window">
+        <field name="name">Dispositivos</field>
+        <field name="res_model">network.device</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+
+</odoo>

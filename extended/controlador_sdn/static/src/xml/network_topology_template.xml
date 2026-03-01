@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="TemplateNetworkTopology">
+        <div class="network-graph-container" style="width: 900px; height: 400px;"></div>
+    </t>
+   <t t-name="LightweightChartWidget">
+    <div class="o_lightweight_chart_widget" 
+         style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #121212; padding: 20px; box-sizing: border-box;">
+      <div style="width: 100%; max-width: 1200px; display: flex; flex-direction: column; gap: 20px;">
+          <button id="export_excel_btn" type="button"
+                  class="btn btn-sm btn-primary"
+                  style="position:absolute; top:10px; right:10px; z-index:1000;">
+            Exportar a Excel
+          </button>
+        <!-- Card CSR1K (Neon Azul) -->
+        <div style="background: #1e1e1e; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); padding: 20px; display: flex; flex-direction: column; align-items: center;">
+          <h1 style="color: #00ffcc; text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc; margin-bottom: 20px; text-align: center;">
+            CSR1K - Monitor de Red
+          </h1>
+          <div style="display: flex; flex-wrap: wrap; gap: 20px; width: 100%; justify-content: center;">
+            <!-- Gráfica de Ancho de Banda -->            
+            <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: center; position: relative;">
+              <h2 style="color: #00ffcc; margin-bottom: 10px;">Ancho de Banda (Kbps)</h2>
+              <div id="container1" style="width: 100%; height: 300px; background: #121212; border: 1px solid #00ffcc; border-radius: 5px; position: relative;">
+                <!-- Contenedor para la leyenda se inyecta vía JS (legend_container1) -->  
+              </div>
+            </div>
+            <!-- Gráfica de Latencia -->
+            <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: center;">
+              <h2 style="color: #00ffcc; margin-bottom: 10px;">Latencia (ms)</h2>
+              <div id="container2" style="width: 100%; height: 300px; background: #121212; border: 1px solid #00ffcc; border-radius: 5px;"></div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <h2 style="color: #00ffcc; margin-bottom: 10px;">Tráfico</h2>
+              <div id="traffic_container1" style="color:rgb(204, 0, 255); font-weight: bold;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card CSR1K2 (Neon Rojo) -->
+        <div style="background: #1e1e1e; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); padding: 20px; display: flex; flex-direction: column; align-items: center;">
+          <h1 style="color: #ff073a; text-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a, 0 0 30px #ff073a; margin-bottom: 20px; text-align: center;">
+            CSR1K2 - Monitor de Red
+          </h1>
+          <div style="display: flex; flex-wrap: wrap; gap: 20px; width: 100%; justify-content: center;">
+            <!-- Gráfica de Ancho de Banda -->            
+            <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: center; position: relative;">
+              <h2 style="color: #ff073a; margin-bottom: 10px;">Ancho de Banda (Kbps)</h2>
+              <div id="container3" style="width: 100%; height: 300px; background: #121212; border: 1px solid #ff073a; border-radius: 5px; position: relative;">
+                <!-- Contenedor para la leyenda se inyecta vía JS (legend_container3) -->  
+              </div>
+            </div>
+            <!-- Gráfica de Latencia -->
+            <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: center;">
+              <h2 style="color: #ff073a; margin-bottom: 10px;">Latencia (ms)</h2>
+              <div id="container4" style="width: 100%; height: 300px; background: #121212; border: 1px solid #ff073a; border-radius: 5px;"></div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <h2 style="color: #ff073a; margin-bottom: 10px;">Tráfico</h2>
+              <div id="traffic_container3" style="color:rgb(204, 0, 255); font-weight: bold;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card CSR1K3 (Neon Amarillo) -->
+        <div style="background: #1e1e1e; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); padding: 20px; display: flex; flex-direction: column; align-items: center;">
+          <h1 style="color: #ffff33; text-shadow: 0 0 10px #ffff33, 0 0 20px #ffff33, 0 0 30px #ffff33; margin-bottom: 20px; text-align: center;">
+            CSR1K3 - Monitor de Red
+          </h1>
+          <div style="display: flex; flex-wrap: wrap; gap: 20px; width: 100%; justify-content: center;">
+            <!-- Gráfica de Ancho de Banda -->            
+            <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: center; position: relative;">
+              <h2 style="color: #ffff33; margin-bottom: 10px;">Ancho de Banda (Kbps)</h2>
+              <div id="container5" style="width: 100%; height: 300px; background: #121212; border: 1px solid #ffff33; border-radius: 5px; position: relative;">
+                <!-- Contenedor para la leyenda se inyecta vía JS (legend_container5) -->  
+              </div>
+            </div>
+            <!-- Gráfica de Latencia -->
+            <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: center;">
+              <h2 style="color: #ffff33; margin-bottom: 10px;">Latencia (ms)</h2>
+              <div id="container6" style="width: 100%; height: 300px; background: #121212; border: 1px solid #ffff33; border-radius: 5px;"></div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <h2 style="color: #ffff33; margin-bottom: 10px;">Trafico</h2>
+              <div id="traffic_container5" style="color:rgb(204, 0, 255); font-weight: bold;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </t>
+
+
+</templates>

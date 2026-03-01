@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+  <record id="network_device_config_view_tree" model="ir.ui.view">
+    <field name="name">network.device.config.view.tree</field>
+    <field name="model">network.device.config</field>
+    <field name="arch" type="xml">
+      <tree string="Configuración de Red">
+        <field name="name" />
+        <field name="device_id" />
+        <field name="config_id" />
+        <field name="state" widget="badge" decoration-warning="state == 'draft'" decoration-success="state == 'done'" decoration-danger="state == 'cancel'" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="network_device_config_view_form" model="ir.ui.view">
+    <field name="name">network.device.config.view.form</field>
+    <field name="model">network.device.config</field>
+    <field name="arch" type="xml">
+      <form string="Configuración de Red">
+        <header>
+          <button string="Validar" states="draft" name="edit_config" type="object" class="oe_highlight"/>
+          <button string="Cancelar" states="draft" name="cancel_config" type="object" class="btn btn-danger" />
+          <field name="state" widget="statusbar"/>
+        </header>
+        <sheet>
+          <h1 class="mt0">
+            <field name="name" readonly="True" class="mb16" />
+          </h1>
+          <group>
+            <group >
+              <field name="device_id" domain="[('type_device', '=', 'router')]" required="True" />
+            </group>
+            <group>
+              <field name="config_id" required="True" />
+            </group>
+          </group>
+          <group string="Cambiar Nombre del Equipo" attrs="{'invisible': [('config_id', '!=', 1)]}">
+            <field name="hostname" />
+          </group>
+          <group string="Crear Nuevo Usuario" attrs="{'invisible': [('config_id', '!=', 2)]}">
+            <group>
+              <field name="username" />
+              <field name="password" password="True" />
+            </group>
+            <group>
+              <field name="privilege" />
+            </group>
+          </group>
+          <group string="Asignar Interfaz" attrs="{'invisible': [('config_id', '!=', 3)]}">
+            <group>
+              <field name="interface" attrs="{'required': [('config_id', '=', 3)]}" />
+              <field name="description" />
+              <field name="interface_active" />
+            </group>
+            <group>
+              <field name="address_ip" />
+              <field name="interface_prefix" />
+            </group>
+          </group>
+          <group string="Crear SubInterfaz" attrs="{'invisible': [('config_id', '!=', 4)]}">
+            <group>
+              <field name="interface" attrs="{'required': [('config_id', '=', 4)]}" />
+              <field name="interface_active" />
+              <field name="vlan_subinterface" />
+            </group>
+            <group>
+              <field name="address_ip" />
+              <field name="address_mask" />
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="network_device_config_action" model="ir.actions.act_window">
+    <field name="name">Configuración de Red</field>
+    <field name="res_model">network.device.config</field>
+    <field name="view_mode">tree,form</field>
+
+  </record>
+
+</odoo>
