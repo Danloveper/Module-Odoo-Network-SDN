@@ -1,0 +1,42 @@
+<config>
+    <interfaces 
+        xmlns="http://openconfig.net/yang/interfaces">
+        <interface>
+            <name>{interface}</name>
+            <config>
+                <name>{interface}</name>
+                <description>{description}</description>
+                <enabled>{active}</enabled>
+            </config>
+            <subinterfaces>
+                <subinterface>
+                    <index>0</index>
+                    <config>
+                        <index>0</index>
+                        <description>{description}</description>
+                        <enabled>{active}</enabled>
+                    </config>
+                    <ipv4 
+                        xmlns="http://openconfig.net/yang/interfaces/ip">
+                        <addresses operation="replace">
+                            <address>
+                                <ip>{ip}</ip>
+                                <config>
+                                    <ip>{ip}</ip>
+                                    <prefix-length>{prefix}</prefix-length>
+                                </config>
+                            </address>
+                        </addresses>
+                    </ipv4>
+                </subinterface>
+            </subinterfaces>
+            <ethernet 
+                 xmlns="http://openconfig.net/yang/interfaces/ethernet">
+                <config>
+                    <auto-negotiate>true</auto-negotiate>
+                    <enable-flow-control>true</enable-flow-control>
+                </config>
+            </ethernet>
+        </interface>
+    </interfaces>
+</config>

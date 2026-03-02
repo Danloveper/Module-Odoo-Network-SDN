@@ -1,0 +1,12 @@
+<config>
+    <native 
+        xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+        <username>
+            <name>{username}</name>
+            <privilege>{privilege}</privilege>
+            <secret>
+                <secret>{password}</secret>
+            </secret>
+        </username>
+    </native>
+</config>

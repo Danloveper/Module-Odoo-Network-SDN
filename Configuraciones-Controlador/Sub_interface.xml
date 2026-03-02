@@ -1,0 +1,39 @@
+<config>
+    <interfaces 
+        xmlns="http://openconfig.net/yang/interfaces">
+        <interface>
+            <name>{interface}</name>
+            <config>
+                <name>{interface}</name>
+                <enabled>{active}</enabled>
+            </config>
+            <ethernet 
+                 xmlns="http://openconfig.net/yang/interfaces/ethernet">
+                <config>
+                    <auto-negotiate>true</auto-negotiate>
+                    <enable-flow-control>true</enable-flow-control>
+                </config>
+            </ethernet>
+        </interface>
+    </interfaces>        
+    <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+        <interface>
+            <GigabitEthernet>
+                <name>{name_ref}.{vlan}</name>
+                <encapsulation>
+                    <dot1Q>
+                        <vlan-id>{vlan}</vlan-id>
+                    </dot1Q>
+                </encapsulation>
+                <ip>
+                    <address>
+                        <primary>
+                            <address>{ip}</address>
+                            <mask>{mask}</mask>
+                        </primary>
+                    </address>
+                </ip>
+            </GigabitEthernet>
+        </interface>       
+    </native>
+</config>
